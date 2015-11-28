@@ -1,10 +1,12 @@
 from django.shortcuts import render, HttpResponse
 from django.contrib.auth.decorators import login_required
+from travel.models import Travel
+
 
 @login_required
 def travel_list(request):
     html = "<html><body>Travel List here</body></html>"
-    return HttpResponse(html)
+    return render(request, "travel/travel_list.html", {"travels":Travel.objects.all()})
 
 @login_required
 def travel_detail(request, pk):
