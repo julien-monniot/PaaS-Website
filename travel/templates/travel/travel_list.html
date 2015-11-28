@@ -1,12 +1,49 @@
-{% extends 'main/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
-    {% for travel in travels %}
+    
         <div>
-            <h1><a href="{% url 'travel.views.travel_detail' pk=travel.pk %}">{{ travel.title }}</a></h1>
-            <p>{{ travel.description|linebreaks }}</p>
+            <h1>{{ travel.title }}</h1>
         </div>
-    {% endfor %}
+   
+
+     <div class="container">
+
+
+      <div class="starter-template">
+
+        <h1>Quoi de neuf ?</h1>
+
+       <div class="row">
+
+       {% for travel in travels %}
+          <div class="col-lg-8">
+              <div class="row publication-header">
+                <table>
+                  <tr>
+                    <td>
+                      <img class="publication-header-logo " src="{{ travel.author.user.image }}">
+                    </td>
+                    <td>
+                      <div class="publication-header-announce "> <p>par <b>{{ travel.author.user.username }}</b><br/>
+                      Hier à <b>19:50</b></p></div><!---->
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            <div class="row publication-content">
+              <div class="publication-content-title"> <h4>{{ travel.title }}</h4></div> 
+              <div><img class="publication-content-image"  src="{{ travel.image }}" /> </div>
+                <div class="publication-content-text"> 
+                <p>{{ travel.description }}</p>
+                
+               </div>
+            </div>
+          </div>
+           {% endfor %}
+        </div>
+      </div>
+    </div><!-- /.container -->
 
 {% endblock content %}
