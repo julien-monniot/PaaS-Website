@@ -4,22 +4,17 @@ body {
   background-color: #E4E4E4;
 }
 
-[class*="col-"], footer {
+.publication [class*="col-"], footer {
 
-
-
- /* 
-  border: 2px solid black;
-  border-radius: 6px;
-
-   line-height: 40px;
-
- text-align: center;
-*/
   margin:10px;
   background-color: white;
   box-shadow: 0 0 5px black;
   border-radius: 6px 0px 0px 0px;
+}
+
+.action{
+  border-bottom: 1px double;
+  margin-bottom: 10px;
 }
 
 
@@ -85,4 +80,16 @@ body {
 
 .publication-content-image{
   width: 30%;
+}
+
+.dashboard-action-button{
+  margin: 5px;
+} 
+
+.dashboard-action-text{
+  vertical-align: middle;
+} 
+
+h1{
+  margin-bottom: 50px;
 }

@@ -2,20 +2,14 @@
 
 {% block content %}
 
-    
-        <div>
-            <h1>{{ travel.title }}</h1>
-        </div>
-   
-
      <div class="container">
 
 
       <div class="starter-template">
 
-        <h1>Quoi de neuf ?</h1>
+        <h1>Liste des voyages</h1>
 
-       <div class="row">
+       <div class="publication row">
 
        {% for travel in travels %}
           <div class="col-lg-8">
@@ -27,7 +21,7 @@
                     </td>
                     <td>
                       <div class="publication-header-announce "> <p>par <b>{{ travel.author.user.username }}</b><br/>
-                      Hier à <b>19:50</b></p></div><!---->
+                     Publié le {{ travel.created_date }}</div><!---->
                     </td>
                   </tr>
                 </table>
