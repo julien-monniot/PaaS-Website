@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Main page</h1>
+    <a href="{% url 'main:travel:travel_list' %}">Travels</a>
+    <a href="{% url 'users:logout' %}">Logout</a>
+
+{% endblock %}
