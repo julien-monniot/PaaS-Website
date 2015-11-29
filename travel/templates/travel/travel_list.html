@@ -1,10 +1,10 @@
-{% extends 'main/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
     {% for travel in travels %}
         <div>
-            <h1><a href="{% url 'travel.views.travel_detail' pk=travel.pk %}">{{ travel.title }}</a></h1>
+            <h1><a href="{% url 'main:travel:travel_detail' travel.pk %}">{{ travel.title }}</a></h1>
             <p>{{ travel.description|linebreaks }}</p>
         </div>
     {% endfor %}
