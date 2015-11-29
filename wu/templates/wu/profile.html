@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Profile utilisateur de {{ user.username }}</h1>
+    <h2>Your informations :</h2>
+    {{ user.WuProfil.promo }}   <br>
+    {{ user.promo}}   <br>
+    {{ user.city }}   <br>
+    {{ user.can_welcome_people }}   <br>
+
+{% endblock content %}

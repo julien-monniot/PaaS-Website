@@ -104,3 +104,7 @@ def user_logout(request):
         # with matching credentials was found.
         username = request.user.username
         return logout_then_login(request, '/users/login', {'username': username})
+
+
+def user_profile(request):
+    return render(request, 'wu/profile.html', {'user': request.user})
