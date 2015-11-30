@@ -1,8 +1,9 @@
-from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirect
+from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirect, get_object_or_404
 from .forms import UserForm, UserProfileForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.views import logout_then_login
-
+from .models import WuProfil
+from django.contrib.auth.models import User
 
 def index(request):
     if not request.user.is_authenticated():
@@ -107,4 +108,19 @@ def user_logout(request):
 
 
 def user_profile(request):
-    return render(request, 'wu/profile.html', {'user': request.user})
+    wu_user = get_object_or_404(WuProfil, user=request.user)
+    return render(request, 'wu/profile.html', { 'user': request.user, 'wu_user': wu_user })
+
+# problem here !
+def user_list(request):
+    current_user = request.user
+    users = User.objects.all()
+    users = users.exclude(username=current_user.username)
+    wu_users = WuProfil.objects.all()
+    wu_users = wu_users.exlude(username=current_user.username)
+    return render(request, 'wu/wu_list.html', { 'users': users, 'wu_users': wu_users })
+
+def user_detail(request, pk):
+    user = get_object_or_404(User, pk=pk)
+    wu_user = WuProfil.objects.get(user = user)
+    return render(request, 'wu/wu_list.html', { 'user': user, 'wu_user': wu_user })

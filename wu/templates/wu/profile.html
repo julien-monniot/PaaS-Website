@@ -2,11 +2,14 @@
 
 {% block content %}
 
-    <h1>Profile utilisateur de {{ user.username }}</h1>
-    <h2>Your informations :</h2>
-    {{ user.WuProfil.promo }}   <br>
-    {{ user.promo}}   <br>
-    {{ user.city }}   <br>
-    {{ user.can_welcome_people }}   <br>
+    <h1>Profil utilisateur de {{ user.username }}</h1>
+    <h2>Vos informations :</h2>
+
+    <p>Date d'inscription sur le site  : {{ user.date_joined}} </p>
+    <p>Nom : {{ user.last_name }}, Prénom : {{ user.first_name }}</p>
+    <p>Email : {{ user.email }}</p>
+    <p>Promotion INSA  : {{ wu_user.promo }} </p>
+    <p>Ville  : {{ wu_user.city }} </p>
+    <p>Possibilité d'accueillur des WUs : {{ wu_user.can_welcome_people }} </p>
 
 {% endblock content %}

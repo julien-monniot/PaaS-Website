@@ -4,12 +4,12 @@
 
     {% for travel in travels %}
         <div>
-            <h1><a href="{% url 'main:travel:travel_detail' travel.pk %}">{{ travel.title }}</a></h1>
+            <h1><a href="{% url 'travel:travel_detail' travel.pk %}">{{ travel.title }}</a></h1>
             <p>{{ travel.description|linebreaks }}</p>
         </div>
     {% endfor %}
 
-    <a href="{% url 'main:travel:create_travel' %}">create travel</a>
-    <a href="{% url 'main:main_panel' %}">home</a>
+    <p><a href="{% url 'travel:create_travel' %}">Proposer un voyage</a></p>
+    <p><a href="{% url 'main:main_panel' %}">Retour au menu</a></p>
 
 {% endblock content %}
