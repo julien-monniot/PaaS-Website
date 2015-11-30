@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+
+    {% for user in users %}
+        <div>
+            <p><a href="{% url 'users:user_detail' user.pk %}">{{ user.username }}</a></p>
+        </div>
+    {% endfor %}
+
+    <p><a href="{% url 'main:main_panel' %}">Retour au menu</a></p>
+
+{% endblock content %}

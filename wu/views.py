@@ -114,10 +114,8 @@ def user_profile(request):
 # problem here !
 def user_list(request):
     current_user = request.user
-    users = User.objects.all()
-    users = users.exclude(username=current_user.username)
-    wu_users = WuProfil.objects.all()
-    wu_users = wu_users.exlude(username=current_user.username)
+    users = User.objects.exclude(id__exact=current_user.id)
+    wu_users = WuProfil.objects.exclude(id__exact=current_user.id)
     return render(request, 'wu/wu_list.html', { 'users': users, 'wu_users': wu_users })
 
 def user_detail(request, pk):
