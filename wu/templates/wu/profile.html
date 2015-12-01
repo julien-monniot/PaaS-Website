@@ -12,4 +12,7 @@
     <p>Ville  : {{ wu_user.city }} </p>
     <p>Possibilité d'accueillur des WUs : {{ wu_user.can_welcome_people }} </p>
 
+    <p><a href="{% url 'users:update_profile' %}">Mettre à jour mes informations</a></p>
+    <p><a href="{% url 'main:main_panel' %}">Retour au menu</a></p>
+
 {% endblock content %}

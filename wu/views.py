@@ -123,3 +123,7 @@ def user_detail(request, pk):
     user = get_object_or_404(User, pk=pk)
     wu_user = WuProfil.objects.get(user = user)
     return render(request, 'wu/wu_detail.html', {'user': user, 'wu_user': wu_user})
+
+def user_profile_update(request):
+    #wu_user = get_object_or_404(WuProfil, user=request.user)
+    return render(request, 'wu/profile_update.html')

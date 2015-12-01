@@ -6,4 +6,7 @@
     <p>{{ wu_user.promo }}</p>
     <p>{{ wu_user.city }}</p>
 
+    <!-- Ajouter un champ pour envoyer directement un message à ce contact (mail, puis à l'avenir, telegram, skype...)-->
+    <p><a href="{% url 'users:user_list' %}">Retour à la liste</a></p>
+
 {% endblock %}
