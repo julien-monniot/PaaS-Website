@@ -1,8 +1,9 @@
-from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirect
+from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirect, get_object_or_404
 from .forms import UserForm, UserProfileForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.views import logout_then_login
-
+from .models import WuProfil
+from django.contrib.auth.models import User
 
 def index(request):
     if not request.user.is_authenticated():
@@ -104,3 +105,25 @@ def user_logout(request):
         # with matching credentials was found.
         username = request.user.username
         return logout_then_login(request, '/users/login', {'username': username})
+
+
+def user_profile(request):
+    wu_user = get_object_or_404(WuProfil, user=request.user)
+    return render(request, 'wu/profile.html', { 'user': request.user, 'wu_user': wu_user })
+
+# problem here !
+def user_list(request):
+    current_user = request.user
+    users = User.objects.exclude(id__exact=current_user.id)
+    wu_users = WuProfil.objects.exclude(id__exact=current_user.id)
+    all_users = zip(users, wu_users)
+    return render(request, 'wu/wu_list.html', {'all_users': all_users})
+
+def user_detail(request, pk):
+    user = get_object_or_404(User, pk=pk)
+    wu_user = WuProfil.objects.get(user = user)
+    return render(request, 'wu/wu_detail.html', {'user': user, 'wu_user': wu_user})
+
+def user_profile_update(request):
+    #wu_user = get_object_or_404(WuProfil, user=request.user)
+    return render(request, 'wu/profile_update.html')

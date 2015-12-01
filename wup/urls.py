@@ -21,5 +21,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^users/', include('wu.urls', namespace='users')),
     url(r'^dashboard/', include('dashboard.urls', namespace='main')),
-    url(r'^travels/', include('travel.urls', namespace='travels'))
+    url(r'^travel/', include('travel.urls', namespace='travel')),
 ]

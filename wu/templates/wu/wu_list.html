@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for user, wu_user in all_users %}
+        <div>
+            <p><a href="{% url 'users:user_detail' user.pk %}">{{ user.username }}</a></p>
+            <p>{{wu_user.promo}}</p>
+        </div>
+    {% endfor %}
+
+    <p><a href="{% url 'main:main_panel' %}">Retour au menu</a></p>
+
+{% endblock content %}
