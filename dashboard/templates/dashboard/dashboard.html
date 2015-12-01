@@ -20,16 +20,34 @@
           </div>
            <div class="action row">
                 <div class="col-sm-4">
-                        <a href="#" class="dashboard-action-button btn btn-medium btn-primary"></i> Consulter mes voyages</a></br>
+                        <a href="{% url 'travel:travel_list' %}" class="dashboard-action-button btn btn-medium btn-primary"></i> Consulter les voyages</a></br>
                 </div>
                 <div class="col-sm-4">
                        <div class="dashboard-action-text">
-                         Consulter les voyages auxquels je participe
+                         Consulter les voyages
                        </div> 
                </div>
           </div>
-
-      
+         <div class="action row">
+                <div class="col-sm-4">
+                        <a href="{% url 'users:user_list' %}" class="dashboard-action-button btn btn-medium btn-primary"></i> Les membres de la famille</a></br>
+                </div>
+                <div class="col-sm-4">
+                       <div class="dashboard-action-text">
+                         Liste des membres
+                       </div>
+               </div>
+          </div>
+         <div class="action row">
+                <div class="col-sm-4">
+                        <a href="{% url 'users:profile' %}" class="dashboard-action-button btn btn-medium btn-primary"></i> Mon Profil</a></br>
+                </div>
+                <div class="col-sm-4">
+                       <div class="dashboard-action-text">
+                         (et modification des informations personnelles)
+                       </div>
+               </div>
+          </div>
 </div><!-- /.container -->
 
 
