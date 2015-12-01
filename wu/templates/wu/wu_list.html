@@ -2,9 +2,10 @@
 
 {% block content %}
 
-    {% for user in users %}
+    {% for user, wu_user in all_users %}
         <div>
             <p><a href="{% url 'users:user_detail' user.pk %}">{{ user.username }}</a></p>
+            <p>{{wu_user.promo}}</p>
         </div>
     {% endfor %}
 

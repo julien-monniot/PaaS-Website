@@ -116,9 +116,10 @@ def user_list(request):
     current_user = request.user
     users = User.objects.exclude(id__exact=current_user.id)
     wu_users = WuProfil.objects.exclude(id__exact=current_user.id)
-    return render(request, 'wu/wu_list.html', { 'users': users, 'wu_users': wu_users })
+    all_users = zip(users, wu_users)
+    return render(request, 'wu/wu_list.html', {'all_users': all_users})
 
 def user_detail(request, pk):
     user = get_object_or_404(User, pk=pk)
     wu_user = WuProfil.objects.get(user = user)
-    return render(request, 'wu/wu_list.html', { 'user': user, 'wu_user': wu_user })
+    return render(request, 'wu/wu_detail.html', {'user': user, 'wu_user': wu_user})
