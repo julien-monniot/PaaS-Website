@@ -1,17 +1,29 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
 
-        <h1>Login to WUP</h1>
-
-        <form id="login_form" method="post" action="/users/login/">
-            {% csrf_token %}
+        <!--<form id="login_form" method="post" action="/users/login/">
+            
             Username: <input type="text" name="username" value="" size="50" />
             <br />
             Password: <input type="password" name="password" value="" size="50" />
             <br />
 
             <input type="submit" value="submit" />
-        </form>
+        </form>-->
+        <div class="loginmodal-container" action="/users/login/">
+        <h1>Connecte-toi avec tes identifiants</h1><br>
+            <form method="POST">
+            	{% csrf_token %}
+            <input type="text" name="username" placeholder="Identifiant" size="50">
+            <input type="password" name="password" placeholder="Mot de passe" size="50">
+            <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+            </form>
+            
+           <!-- <div class="login-help">
+            <a href="#">Register</a> - <a href="#">Forgot Password</a>-->
+            </div>
+          </div>
 
 {% endblock content %}
