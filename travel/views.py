@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Travel
-
+from .models import Stage
 
 @login_required
 def travel_list(request):
@@ -11,7 +11,8 @@ def travel_list(request):
 @login_required
 def travel_detail(request, pk):
     travel = get_object_or_404(Travel, pk=pk)
-    return render(request, 'travel/travel_detail.html', {'travel': travel})
+    stages = Stage.objects.filter(travel=travel.id)
+    return render(request, 'travel/travel_detail.html', {'travel': travel, 'stages':stages})
 
 @login_required
 def create_travel(request):

@@ -22,9 +22,13 @@ body {
 	padding: 0px;
 	margin: 0px;
 }
+.publication-header table{
+  vertical-align: top;
+}
 .publication-header td{
   vertical-align: top;
 }
+
 
 .publication-header-logo{
   width: 50px;
@@ -71,6 +75,21 @@ body {
 .publication-content-title{
   background-color: white;
 }
+
+.publication-content-detailed {
+  font-size: 18px;
+  text-align: center;
+  font-size: 24;
+  border-top: solid 1px;
+  padding-top: 25px;
+  margin-top: 20px;
+  border-bottom: solid 1px;
+  border-bottom-width: 80%;
+  margin-bottom: 20px;
+  padding-bottom: 25px;
+}
+
+
 .publication-content-text{
   word-wrap: break-word;
   text-align: justify;
@@ -83,9 +102,13 @@ body {
   float: left;
   margin-right: 10px;
 }
-
+.publication-stages{
+  margin: 10px;
+  padding-left: 10px;
+  display: inline-block;
+}
 .dashboard-action-button{
-  margin: 5px;
+  margin: 10px;
 } 
 
 .dashboard-action-text{
@@ -94,4 +117,9 @@ body {
 
 h1{
   margin-bottom: 50px;
+}
+
+.return-back{
+  width: 100px;
+  text-align: center;
 }

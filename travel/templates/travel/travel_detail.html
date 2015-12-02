@@ -2,7 +2,49 @@
 
 {% block content %}
 
-    <h1>{{ travel.title }}</h1>
-    <p>{{ travel.description|linebreaks }}</p>
+     <div class="container">
+      <div class="starter-template">
+       <div class="publication row">
 
+       	<a href="javascript:history.go(-1)"><div class="dashboard-action-button btn btn-medium btn-primary">
+       		Retour
+       	</div></a>
+		<div class="col-lg-8">
+
+
+			<div class="row publication-header">
+                <table>
+                  <tr>
+                    <td>
+                      <img class="publication-header-logo " src="{{ travel.author.image.url }}">
+                    </td>
+                    <td>
+                      <div class="publication-header-announce "> <p>par <b>{{ travel.author.user.username }}</b><br/>
+                     Publié le {{ travel.created_date }}</div><!---->
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            <div class="row publication-content">
+              <div class="publication-content-title publication-content-detailed"> <h4>{{ travel.title }}</h4></div> 
+              
+              <div> 
+                <img class="publication-content-image"  src="{{ travel.image.url }}" /> 
+                <p class="publication-content-text"> {{ travel.description }}</p>
+               </div>
+
+               <div class="publication-stages"> 
+               	<ul>
+
+       				{% for stage in stages %}
+               			<li>{{ stage.title }}</li>
+          			{% endfor %}
+               	</ul>
+               </div>
+
+            </div>
+          </div>
+      </div>
+      </div>
+      </div>
 {% endblock %}
