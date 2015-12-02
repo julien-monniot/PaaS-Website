@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 def index(request):
     if not request.user.is_authenticated():
-        return render(request, 'index.html', {})
+        return render(request, 'dashboard/dashboard.html', {})
         #return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
     else:
         return redirect('/dashboard')
