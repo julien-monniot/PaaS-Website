@@ -2,6 +2,39 @@
 
 {% block content %}
 
+
+
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Voyages</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse ">
+    <ul class="nav navbar-nav">
+     
+          <li><a href="{% url 'travel:create_travel' %}">Proposer un voyage</a></li>
+          <li><a href="{% url 'travel:create_travel' %}">Mes voyages créés</a></li>
+          <li><a href="{% url 'travel:create_travel' %}">Voyages auxquels je participe</a></li>
+          <li><a href="{% url 'main:main_panel' %}">Retour au menu</a></li>
+    </ul>
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input class="form-control" placeholder="Search" type="text">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+
+    </form>
+    
+  </div><!-- /.navbar-collapse -->
+</nav>
      <div class="container">
 
 
@@ -29,10 +62,9 @@
             <div class="row publication-content">
               <div class="publication-content-title"> <h4>{{ travel.title }}</h4></div> 
               
-              <div><img class="publication-content-image"  src="{{ travel.image.url }}" /> </div>
-                <div class="publication-content-text"> 
-                <p>{{ travel.description }}</p>
-                
+              <div> 
+                <img class="publication-content-image"  src="{{ travel.image.url }}" /> 
+                <p class="publication-content-text"> {{ travel.description }}</p>
                </div>
             </div>
           </div>
@@ -40,8 +72,5 @@
         </div>
       </div>
     </div><!-- /.container -->
-
-    <p><a href="{% url 'travel:create_travel' %}">Proposer un voyage</a></p>
-    <p><a href="{% url 'main:main_panel' %}">Retour au menu</a></p>
 
 {% endblock content %}

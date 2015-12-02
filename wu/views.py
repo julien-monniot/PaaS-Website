@@ -4,11 +4,11 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.views import logout_then_login
 from .models import WuProfil
 from django.contrib.auth.models import User
+from wup import settings
 
 def index(request):
     if not request.user.is_authenticated():
-        return render(request, 'dashboard/dashboard.html', {})
-        #return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+        return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
     else:
         return redirect('/dashboard')
 
