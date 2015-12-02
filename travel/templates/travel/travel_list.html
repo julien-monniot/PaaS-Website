@@ -28,7 +28,8 @@
               </div>
             <div class="row publication-content">
               <div class="publication-content-title"> <h4>{{ travel.title }}</h4></div> 
-              <div><img class="publication-content-image"  src="{{ travel.image }}" /> </div>
+              {% load staticfiles %}
+              <div><img class="publication-content-image"  src="{{ travel.image.url }}" /> </div>
                 <div class="publication-content-text"> 
                 <p>{{ travel.description }}</p>
                 
