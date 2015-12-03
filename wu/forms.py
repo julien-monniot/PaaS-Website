@@ -15,4 +15,3 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = WuProfil
         fields = ['promo', 'city', 'can_welcome_people', 'image']
-
