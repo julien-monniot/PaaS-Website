@@ -77,16 +77,16 @@ body {
 }
 
 .publication-content-detailed {
-  font-size: 18px;
+  font-size: 30px;
   text-align: center;
-  font-size: 24;
-  border-top: solid 1px;
+ /* border-top: solid 1px;*/
   padding-top: 25px;
   margin-top: 20px;
-  border-bottom: solid 1px;
-  border-bottom-width: 80%;
+  /*border-bottom: solid 1px;
+  border-bottom-width: 80%;*/
   margin-bottom: 20px;
   padding-bottom: 25px;
+
 }
 
 
@@ -101,6 +101,18 @@ body {
   min-width: 200px;
   float: left;
   margin-right: 10px;
+}
+
+.publication-participant-logo
+{
+  width: 30px;
+  padding: 0px;
+}
+.publication-participant-name
+{
+  font-size: 12px;
+  text-align: center;
+  padding-left: 20px;
 }
 .publication-stages{
   margin: 10px;
@@ -118,8 +130,19 @@ body {
 h1{
   margin-bottom: 50px;
 }
-
+.details{
+  text-align: center;
+}
 .return-back{
   width: 100px;
   text-align: center;
+}
+.add-vertical-space{
+  margin-bottom:10px;
+}
+.participants {
+}
+.participants [class*="col-"]{
+ padding-left: 0px;
+ padding-right: 0px;
 }
