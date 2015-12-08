@@ -33,4 +33,4 @@ def create_travel(request):
 
     # Bad form (or form details), no form supplied...
     # Render the form with error messages (if any).
-    return render('travel/add_travel.html', {'form': form})
+    return render(request, 'travel/add_travel.html', {'form': form})
