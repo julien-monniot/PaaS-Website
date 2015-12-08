@@ -23,15 +23,17 @@ def create_travel(request):
         form = TravelForm(request.POST)
 
         if form.is_valid():
+            print("Form valid")
             travel = form.save(commit=False)
-            wu_user = WuProfil.objects.get(user=request.User)
+            wu_user = WuProfil.objects.get(user=request.user)
             travel.author = wu_user
-            travel.participants = wu_user
+            #travel.participants = Participants.wu_user
             travel.save()
             form.save_m2m()
             return travel_list(request)
         else:
             # The supplied form contained errors - just print them to the terminal.
+            print("form invalid")
             print(form.errors)
     else:
         # If the request was not a POST, display the form to enter details.
