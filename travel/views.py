@@ -1,6 +1,7 @@
-from django.shortcuts import render, HttpResponse, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Travel
+from wu.models import WuProfil
 from .forms import TravelForm
 
 
@@ -22,8 +23,13 @@ def create_travel(request):
         form = TravelForm(request.POST)
 
         if form.is_valid():
-            form.save(commit=True)
-            #return travel_detail(request, )
+            travel = form.save(commit=False)
+            wu_user = WuProfil.objects.get(user=request.User)
+            travel.author = wu_user
+            travel.participants = wu_user
+            travel.save()
+            form.save_m2m()
+            return travel_list(request)
         else:
             # The supplied form contained errors - just print them to the terminal.
             print(form.errors)
