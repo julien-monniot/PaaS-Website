@@ -38,4 +38,3 @@ class Stage(models.Model):
     duration = models.PositiveSmallIntegerField(default=1, blank=True, help_text='Durée en jours pour l\'étape',
                                                 validators=[MaxValueValidator(limit_value=21)])
     description = models.TextField(blank=True)
-    description = models.TextField(blank=True)
