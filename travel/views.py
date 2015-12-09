@@ -20,7 +20,7 @@ def travel_detail(request, pk):
 @login_required
 def create_travel(request):
     if request.method == 'POST':
-        form = TravelForm(request.POST)
+        form = TravelForm(request.POST, request.FILES)
 
         if form.is_valid():
             print("Form valid")

@@ -8,7 +8,7 @@ class TravelForm(forms.ModelForm):
     description = forms.CharField(widget=forms.Textarea, max_length=2000, help_text="Description du voyage")
     starting_date = forms.DateField(help_text="Date de début")
     ending_date = forms.DateField(help_text="Date de fin")
-    #image = forms.ImageField(help_text="Image associée : ")
+    image = forms.ImageField(help_text="Image associée : ")
     budget = forms.IntegerField(help_text='Bugdet prévisionnel par personne pour le voyage entier', min_value=0,
                                 max_value=1500)
 
@@ -16,7 +16,7 @@ class TravelForm(forms.ModelForm):
 
     class Meta:
         model = Travel
-        fields = ('title', 'description', 'starting_date', 'ending_date', 'budget')
+        fields = ('title', 'description', 'starting_date', 'ending_date', 'budget', 'image')
 
 
 class StageForm(forms.ModelForm):

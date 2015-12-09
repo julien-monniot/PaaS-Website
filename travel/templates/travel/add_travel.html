@@ -2,7 +2,13 @@
 
 {% block content %}
 
-        <form id="category_form" method="post" action="/travel/create/">
+
+{% if form.is_multipart %}
+    <form enctype="multipart/form-data" id="category_form" method="post" action="/travel/create/">
+{% else %}
+    <form id="category_form" method="post" action="/travel/create/">
+{% endif %}
+
 
             {% csrf_token %}
             {% for hidden in form.hidden_fields %}
