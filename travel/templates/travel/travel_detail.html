@@ -2,7 +2,88 @@
 
 {% block content %}
 
-    <h1>{{ travel.title }}</h1>
-    <p>{{ travel.description|linebreaks }}</p>
+     <div class="container">
+      <div class="starter-template">
+       <div class="publication row">
 
+       	<a href="javascript:history.go(-1)"><div class="dashboard-action-button btn btn-medium btn-primary">
+       		Retour
+       	</div></a>
+		<div class="col-lg-8">
+
+
+			<div class="row publication-header">
+                <table>
+                  <tr>
+                    <td>
+                      <img class="publication-header-logo " src="{{ travel.author.image.url }}">
+                    </td>
+                    <td>
+                      <div class="publication-header-announce "> <p>par <b>{{ travel.author.user.username }}</b><br/>
+                     Publié le {{ travel.created_date }}</div><!---->
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            <div class="row publication-content">
+              <div class="publication-content-title publication-content-detailed"> <h2>{{ travel.title }}</h2></div> 
+              <table>
+                <tr>
+                  <td>
+                    <div> 
+                      <img class="publication-content-image"  src="{{ travel.image.url }}" /> 
+                      <p class="publication-content-text"> {{ travel.description }}</p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div>
+                     <h3 class="details"><b>Les étapes</b></h3>
+                     <div class="publication-stages"> 
+                     	<ul class="list-group">
+               				  {% for stage in stages %}
+                       			<li class="list-group-item add-vertical-space">
+                              <p><h4><b><u class="add-vertical-space">{{ stage.title }}</u></b></h4></p>
+                              <p><i>{{ stage.description }}</i></p>
+                              </br>
+                              <p><u>Départ</u> : {{ stage.point_of_departure }}</p>
+                              <p><u>Arrivée</u> : {{ stage.point_of_arrival }}</p>
+                              <p><u>Durée en jour(s)</u> : {{ stage.duration }}</p>
+                            </li>
+                  			{% endfor %}
+                     	</ul>
+                     </div>
+                    </div>
+                  </td>
+                </tr>
+                 <tr>
+                  <td>
+                    <div class="participants">
+                       <h3 class="details"><b>Participants</b></h3>
+                       <div class="row"> 
+                          {% for participant in participants %}
+                              <div class="col-lg-2">
+                                <table>
+                                  <tr>
+                                    <td>
+                                      <img class="publication-participant-logo " src="{{ participant.image.url }}">
+                                    </td>
+                                    <td>
+                                      <div class="publication-participant-name ">{{ participant.user.username }}</b><br/></div><!---->
+                                    </td>
+                                  </tr>
+                                </table>
+                              </div>
+                          {% endfor %}
+                       </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+      </div>
+      </div>
+      </div>
 {% endblock %}
