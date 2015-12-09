@@ -7,7 +7,7 @@ from .forms import TravelForm
 
 @login_required
 def travel_list(request):
-    travels = Travel.objects.order_by('created_date')
+    travels = Travel.objects.order_by('-created_date')
     return render(request, 'travel/travel_list.html', {'travels': travels})
 
 
