@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<div class='formulaire-part' >
     <h1>Profil utilisateur de {{ user.username }}</h1>
     <h2>Vos informations :</h2>
 
@@ -12,7 +12,8 @@
     <p>Ville  : {{ wu_user.city }} </p>
     <p>Possibilité d'accueillur des WUs : {{ wu_user.can_welcome_people }} </p>
 
-    <p><a href="{% url 'users:update_profile' %}">Mettre à jour mes informations</a></p>
-    <p><a href="{% url 'main:main_panel' %}">Retour au menu</a></p>
+    <p><a class="btn btn-primary" href="{% url 'users:update_profile' %}">Mettre à jour mes informations</a></p>
+    <p><a class="btn btn-default" href="{% url 'main:main_panel' %}">Retour au menu</a></p>
+</form>
 
 {% endblock content %}

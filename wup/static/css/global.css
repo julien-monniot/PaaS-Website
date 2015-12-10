@@ -159,6 +159,8 @@ h1{
   background-color: white;
   box-shadow: 0 0 5px black;
   padding: 10px;
+  display: inline-block;
+  max-width: 600px;
 }
 
 .user_form
@@ -175,3 +177,20 @@ strong {
   padding-bottom: 50px;
   font-size: 22px;
 }
+
+.family-memebers [class*="col-"]
+{
+
+  margin:10px;
+  background-color: white;
+  box-shadow: 0 0 5px black;
+  border-radius: 6px 0px 0px 0px;
+ 
+}
+
+.sub-content{
+  font-size: 24px;
+}
+
+.sub-content  table  tr  td{
+  padding-right: 20px;

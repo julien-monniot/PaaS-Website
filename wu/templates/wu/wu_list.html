@@ -1,14 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<strong>Membre de la Famille</string>
+    <div class="family-memebers">
     {% for user, wu_user in all_users %}
-        <div>
-            <p><a href="{% url 'users:user_detail' user.pk %}">{{ user.username }}</a></p>
-            <p>{{wu_user.promo}}</p>
+        <div class="col-lg-4 " >
+            <div class="sub-content"><p>
+            	<table>
+            		<tr>
+		            	<td><img class="publication-header-logo " src="{{ wu_user.image.url }}"></td>
+		            	<td><a href="{% url 'users:user_detail' user.pk %}">{{ wu_user.user.username }}</a></p></td>
+		            	<td><p>{{wu_user.promo}}</p></td>
+	            	</tr>
+            	</table>
+        	</div>
         </div>
     {% endfor %}
-
-    <p><a href="{% url 'main:main_panel' %}">Retour au menu</a></p>
+	</div>
+    <p><a class="btn btn-default" href="{% url 'main:main_panel' %}">Retour au menu</a></p>
 
 {% endblock content %}
