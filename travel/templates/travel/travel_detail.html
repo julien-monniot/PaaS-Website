@@ -6,9 +6,15 @@
       <div class="starter-template">
        <div class="publication row">
 
-       	<a href="javascript:history.go(-1)"><div class="dashboard-action-button btn btn-medium btn-primary">
-       		Retour
-       	</div></a>
+         <div style="padding-top:20px" class="btn-group" role="group">
+          <a href="{% url 'travel:travel_list' %}"><button class="dashboard-action-button btn btn-medium btn-default">Retour</button></a>
+          {% if participating == False %}
+          <a href="subscribe"><button type="button" class="btn btn-success">Participer</button></a>
+          {% else %}
+          <a href="unsubscribe"><button type="button" class="btn btn-warning">Abandonner</button></a>
+          {% endif %}
+          <quote style="padding-left:20px;color:red;"> {{ message }}</quote>
+       	</div>
 		<div class="col-lg-8">
 
 
@@ -61,7 +67,7 @@
                   <td>
                     <div class="participants">
                        <h3 class="details"><b>Participants</b></h3>
-                       <div class="row"> 
+                       <div class="row sub-content"> 
                           {% for participant in participants %}
                               <div class="col-lg-2">
                                 <table>
@@ -71,6 +77,9 @@
                                     </td>
                                     <td>
                                       <div class="publication-participant-name ">{{ participant.user.username }}</b><br/></div><!---->
+                                    </td>
+                                    <td>
+                                      <div class="publication-participant-name ">{{ participant.motivation }}/5</b><br/></div><!---->
                                     </td>
                                   </tr>
                                 </table>

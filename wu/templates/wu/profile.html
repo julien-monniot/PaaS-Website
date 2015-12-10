@@ -4,7 +4,7 @@
 <div class='formulaire-part' >
     <h1>Profil utilisateur de {{ user.username }}</h1>
     <h2>Vos informations :</h2>
-
+    <img style='width:50%' class="add-vertical-space" src="{{ wu_user.image.url }}">
     <p>Date d'inscription sur le site  : {{ user.date_joined}} </p>
     <p>Nom : {{ user.last_name }}, Prénom : {{ user.first_name }}</p>
     <p>Email : {{ user.email }}</p>
