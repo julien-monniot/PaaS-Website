@@ -9,7 +9,7 @@
             	<table>
             		<tr>
 		            	<td><img class="publication-header-logo " src="{{ wu_user.image.url }}"></td>
-		            	<td><a href="{% url 'users:user_detail' user.pk %}">{{ wu_user.user.username }}</a></p></td>
+		            	<td><a href="{% url 'users:user_detail' wu_user.user.pk %}">{{ wu_user.user.username }}</a></p></td>
 		            	<td><p>{{wu_user.promo}}</p></td>
 	            	</tr>
             	</table>
