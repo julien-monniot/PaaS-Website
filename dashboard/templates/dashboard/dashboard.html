@@ -8,46 +8,41 @@
       
         <h1>Bienvenue</h1>
 
-          <div class="action row">
-                <div class="col-sm-4">
-                        <a href="{% url 'travel:create_travel' %}"  class="dashboard-action-button btn btn-medium btn-primary"></i> Créer un voyage</a></br>
-                </div>
-                <div class="col-sm-4">
-                       <div class="dashboard-action-text">
-                         Créer un évenement visible par toute la famille
-                       </div> 
-               </div>
+        <div class="starter-template">
+
+        <h1>{{ title }}</h1>
+
+       <div class="publication row">
+      
+       {% for fact in historique %}
+          <div class="col-lg-8">
+              <div class="row publication-header">
+                <table>
+                  <tr>
+                    <td>
+                      <img class="publication-header-logo " src="{{ fact.actor.image.url }}">
+                    </td>
+                    <td>
+                      {% if fact.action_type == 'TCT' %}
+                      <div class="publication-header-announce "><b>{{ fact.actor.user.username }} propose un nouveau <a href="/travel/{{ fact.object_id }}">voyage</a></b> <br/> le {{ fact.date }}</div>
+
+                      {% elif fact.action_type == 'TS'%}
+                      <div class="publication-header-announce "><b>{{ fact.actor.user.username }} participe à ce <a href="/travel/{{ fact.object_id }}">voyage</a></b> <br/> le {{ fact.date }}</div>
+
+
+                      {% elif fact.action_type == 'TU'%}
+                      <div class="publication-header-announce "><b>{{ fact.actor.user.username }} ne participe plus  à ce <a href="/travel/{{ fact.object_id }}">voyage </a></b> <br/> le {{ fact.date }}</div>
+
+
+                      {% endif %}
+                    </td>
+                  </tr>
+                </table>
+              </div>
           </div>
-           <div class="action row">
-                <div class="col-sm-4">
-                        <a href="{% url 'travel:travel_list' %}" class="dashboard-action-button btn btn-medium btn-primary"></i> Consulter les voyages</a></br>
-                </div>
-                <div class="col-sm-4">
-                       <div class="dashboard-action-text">
-                         Consulter les voyages
-                       </div> 
-               </div>
-          </div>
-         <div class="action row">
-                <div class="col-sm-4">
-                        <a href="{% url 'users:user_list' %}" class="dashboard-action-button btn btn-medium btn-primary"></i> Les membres de la famille</a></br>
-                </div>
-                <div class="col-sm-4">
-                       <div class="dashboard-action-text">
-                         Liste des membres
-                       </div>
-               </div>
-          </div>
-         <div class="action row">
-                <div class="col-sm-4">
-                        <a href="{% url 'users:profile' %}" class="dashboard-action-button btn btn-medium btn-primary"></i> Mon Profil</a></br>
-                </div>
-                <div class="col-sm-4">
-                       <div class="dashboard-action-text">
-                         (et modification des informations personnelles)
-                       </div>
-               </div>
-          </div>
+           {% endfor %}
+        </div>
+      </div>
 </div><!-- /.container -->
 
 

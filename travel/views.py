@@ -7,6 +7,7 @@ from wu.models import WuProfil
 from .forms import TravelForm, StageFormSet
 from .models import Stage
 from .models import Participate
+from dashboard.models import Historique
 from django.views.generic import CreateView, UpdateView
 
 
@@ -45,6 +46,14 @@ def travel_subscribe(request, pk):
         participation=Participate(person=request.user.wuprofil, travel=travel, motivation=5)
         participation.save()
 
+        Historique.new(
+            actor=request.user.wuprofil, 
+            action_type="TS",
+            object_type="TR",
+            object_id=pk
+        )
+
+
     return HttpResponseRedirect('/travel/%s/' % pk)
 
 
@@ -55,7 +64,14 @@ def travel_unsubscribe(request, pk):
     if len(participations) > 0:
         for participation in participations:
             participation.delete()
-     
+
+        Historique.new(
+            actor=request.user.wuprofil, 
+            action_type="TU",
+            object_type="TR",
+            object_id=pk
+        )
+
 
     return HttpResponseRedirect('/travel/%s/' % pk)
 
