@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'wup.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        "HOST": '127.0.0.1',
+        "HOST": '62.210.69.220',
         'NAME': 'dev_wup',
-        'USER': 'julien',
-        'PASSWORD': 'mysqlINSA2',
+        'USER': 'wup_dev_client',
+        'PASSWORD': 'wupINS@2',
     }
 }
 
