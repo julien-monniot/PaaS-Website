@@ -32,7 +32,7 @@ class Participate(models.Model):
 
 
 class Stage(models.Model):
-    travel = models.ForeignKey(Travel)
+    travel = models.ForeignKey(Travel, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     point_of_departure = models.CharField(max_length=300)
     point_of_arrival = models.CharField(max_length=300)
