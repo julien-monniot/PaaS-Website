@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'wu',
     'travel',
     'dashboard',
+    'bootstrapform',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -81,7 +82,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         "HOST": '127.0.0.1',
-        'NAME': 'mysql',
+        'NAME': 'dev_wup',
         'USER': 'julien',
         'PASSWORD': 'mysqlINSA2',
     }

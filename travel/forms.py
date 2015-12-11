@@ -1,6 +1,17 @@
 # -*- coding: utf-8 -*-
 from django import forms
 from .models import Travel, Stage
+from django.forms import inlineformset_factory
+
+MAX_STAGES = 30
+
+StageFormSet = inlineformset_factory(
+    Travel,
+    Stage,
+    extra=1,
+    min_num=0,
+    max_num=MAX_STAGES,
+    fields=('title', 'point_of_departure', 'point_of_arrival', 'duration', 'description'))
 
 
 class TravelForm(forms.ModelForm):
@@ -11,8 +22,6 @@ class TravelForm(forms.ModelForm):
     image = forms.ImageField(help_text="Image associée : ")
     budget = forms.IntegerField(help_text='Bugdet prévisionnel par personne pour le voyage entier', min_value=0,
                                 max_value=1500)
-
-    #views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 
     class Meta:
         model = Travel
@@ -25,8 +34,6 @@ class StageForm(forms.ModelForm):
     point_of_arrival = forms.CharField(max_length=300)
     duration = forms.IntegerField(help_text='Durée en jours pour l\'étape', max_value=21, min_value=0)
     description = forms.CharField(widget=forms.Textarea, max_length=2000)
-
-    #views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 
     class Meta:
         model = Stage
