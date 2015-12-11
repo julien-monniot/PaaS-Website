@@ -13,7 +13,6 @@ def index(request):
         return redirect('/dashboard')
 
 
-# TODO : change this to class with post method
 def register(request):
 
     # Used later if registration is valid

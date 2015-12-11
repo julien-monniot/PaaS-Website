@@ -13,7 +13,7 @@ class WuProfil(models.Model):
     city = models.CharField(blank=True,max_length=150, help_text='Ville actuelle')
     can_welcome_people = models.BooleanField(default=False, blank=True,
                                              help_text='Possibilité d\'accueillir des WUs en transit')
-    image = models.ImageField(upload_to='profile_images', default='nobody.jpg')
+    image = models.ImageField(upload_to='profile_images', default='profile_images/nobody.jpg')
 
     def __str__(self):
         return self.user.username
