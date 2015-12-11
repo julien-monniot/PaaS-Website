@@ -1,28 +1,40 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
-        <h1>Register On WUP</h1>
+    {% if not user.is_authenticated %}
+        <strong>S'enregistrer sur WUP</strong>
 
         {% if registered %}
         <strong>Thank you for registering!</strong>
-        <a href="/">Return to the homepage.</a><br />
+        <a href="/">Se connecter</a><br />
         {% else %}
-        <strong>Register here!</strong><br />
+            <form role="form" class="user_form" method="post" action="/users/register/"
+                    enctype="multipart/form-data">
 
-        <form id="user_form" method="post" action="/users/register/" enctype="multipart/form-data">
+                {% csrf_token %}
 
-            {% csrf_token %}
+                <!-- Display each form. The as_p method wraps each element in a paragraph
+                     (<p>) element. This ensures each element appears on a new line,
+                     making everything look neater. -->
+                     <div class="row">
+                        <div class="col-lg-4 formulaire-part">
+                         {{ user_form.as_p }}
+                        </div>
+                        <div class="col-lg-4 formulaire-part">
+                         {{ profile_form.as_p }}
+                        </div>
 
-            <!-- Display each form. The as_p method wraps each element in a paragraph
-                 (<p>) element. This ensures each element appears on a new line,
-                 making everything look neater. -->
-            {{ user_form.as_p }}
-            {{ profile_form.as_p }}
+                    </div>
 
-            <!-- Provide a button to click to submit the form. -->
-            <input type="submit" name="submit" value="Register" />
-        </form>
+                <!-- Provide a button to click to submit the form. -->
+                <input class="btn  btn-primary btn-lg" type="submit" name="submit" value="Register" />
+                <a href="javascript:history.go(-1)"><button type="button" class="btn btn-default">Retour</button></a>
+            </form>
         {% endif %}
+
+
+    {% else %}
+        <strong>Vous êtes déjà connecté</strong>
+    {% endif %}
 
 {% endblock content %}

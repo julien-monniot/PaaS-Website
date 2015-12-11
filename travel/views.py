@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect,render_to_response
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from .models import Travel
 from wu.models import WuProfil
 from .forms import TravelForm, StageFormSet
@@ -28,11 +29,35 @@ def my_travels(request):
 
 
 @login_required
-def travel_detail(request, pk):
+def travel_detail(request, pk, message=""):
     travel = get_object_or_404(Travel, pk=pk)
     stages = Stage.objects.filter(travel=travel.id)
     participants = travel.participants.all()
-    return render(request, 'travel/travel_detail.html', {'travel': travel, 'stages':stages, 'participants':participants})
+    participating = False
+    if len(travel.participants.filter(user=request.user.id)) > 0:
+        participating = True
+    return render(request, 'travel/travel_detail.html', {'message':message, 'travel': travel, 'stages':stages, 'participants':participants, 'participating':participating})
+
+@login_required
+def travel_subscribe(request, pk):
+    travel = get_object_or_404(Travel, pk=pk)
+    if len(travel.participants.filter(user_id=request.user.id)) < 1:
+        participation=Participate(person=request.user.wuprofil, travel=travel, motivation=5)
+        participation.save()
+
+    return HttpResponseRedirect('/travel/%s/' % pk)
+
+
+@login_required
+def travel_unsubscribe(request, pk):
+    travel = get_object_or_404(Travel, pk=pk)
+    participations=Participate.objects.filter(person__user__id=request.user.id, travel_id=pk)
+    if len(participations) > 0:
+        for participation in participations:
+            participation.delete()
+     
+
+    return HttpResponseRedirect('/travel/%s/' % pk)
 
 '''
 @login_required

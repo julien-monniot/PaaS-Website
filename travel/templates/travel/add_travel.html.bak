@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+<<<<<<< HEAD
+{% load bootstrap %}
+=======
+{% block content %}
+<strong>Créer un voyage</strong>
+{% if form.is_multipart %}
+    <form class="user_form" enctype="multipart/form-data" id="category_form" method="post" action="/travel/create/">
+{% else %}
+    <form class="user_form" id="category_form" method="post" action="/travel/create/">
+{% endif %}
+>>>>>>> front
+
+{% block content %}
+
+<<<<<<< HEAD
+<div class="container">
+     <form action="." method="post" class="travel_form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        {{ stage_formset|bootstrap }}
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Créer</button>
+        </div>
+  </form>
+</div>
+=======
+            {% csrf_token %}
+
+             <div class="row">
+                <div class="col-lg-4 formulaire-part">
+                    {% for field in form.visible_fields %}
+                            {{ field.errors }}
+                            {{ field.help_text }}
+                            <div>{{ field }}</div>
+                    {% endfor %}
+                </div>
+            </div>    
+>>>>>>> front
+
+
+{% endblock content %}
