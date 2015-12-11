@@ -15,13 +15,13 @@ StageFormSet = inlineformset_factory(
 
 
 class TravelForm(forms.ModelForm):
-    title = forms.CharField(max_length=200, help_text="Le titre de votre voyage")
-    description = forms.CharField(widget=forms.Textarea, max_length=2000, help_text="Description du voyage")
-    starting_date = forms.DateField(help_text="Date de début")
-    ending_date = forms.DateField(help_text="Date de fin")
-    image = forms.ImageField(help_text="Image associée : ")
-    budget = forms.IntegerField(help_text='Bugdet prévisionnel par personne pour le voyage entier', min_value=0,
-                                max_value=1500)
+    title = forms.CharField(max_length=200, label='Titre du Voyage')
+    description = forms.CharField(widget=forms.Textarea, max_length=2000, help_text="Description du voyage", label='Description du voyage')
+    starting_date = forms.DateField(label='Date de début')
+    ending_date = forms.DateField(label='Date de fin')
+    image = forms.ImageField(label='Image associée : ')
+    budget = forms.IntegerField(help_text='(par personne pour le voyage entier)', min_value=0,
+                                max_value=1500, label='Bugdet prévisionnel')
 
     class Meta:
         model = Travel
@@ -29,11 +29,11 @@ class TravelForm(forms.ModelForm):
 
 
 class StageForm(forms.ModelForm):
-    title = forms.CharField(max_length=200)
-    point_of_departure = forms.CharField(max_length=300)
-    point_of_arrival = forms.CharField(max_length=300)
-    duration = forms.IntegerField(help_text='Durée en jours pour l\'étape', max_value=21, min_value=0)
-    description = forms.CharField(widget=forms.Textarea, max_length=2000)
+    title = forms.CharField(max_length=200, label='Nom de l\'étape')
+    point_of_departure = forms.CharField(max_length=300, label='Point de départ')
+    point_of_arrival = forms.CharField(max_length=300, label='Point d\'arrivée')
+    duration = forms.IntegerField(help_text='(en jours)', max_value=21, min_value=0, label='Durée')
+    description = forms.CharField(widget=forms.Textarea, max_length=2000, label='')
 
     class Meta:
         model = Stage
