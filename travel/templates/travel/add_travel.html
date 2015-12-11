@@ -1,22 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-
+<strong>Créer un voyage</strong>
 {% if form.is_multipart %}
-    <form enctype="multipart/form-data" id="category_form" method="post" action="/travel/create/">
+    <form class="user_form" enctype="multipart/form-data" id="category_form" method="post" action="/travel/create/">
 {% else %}
-    <form id="category_form" method="post" action="/travel/create/">
+    <form class="user_form" id="category_form" method="post" action="/travel/create/">
 {% endif %}
 
 
             {% csrf_token %}
 
-            {% for field in form.visible_fields %}
-                {{ field.errors }}
-                {{ field.help_text }}
-                <div>{{ field }}</div>
-            {% endfor %}
+             <div class="row">
+                <div class="col-lg-4 formulaire-part">
+                    {% for field in form.visible_fields %}
+                            {{ field.errors }}
+                            {{ field.help_text }}
+                            <div>{{ field }}</div>
+                    {% endfor %}
+                </div>
+            </div>    
 
             <input type="submit" name="submit" value="Créer un voyage" />
         </form>
