@@ -23,7 +23,8 @@
                         <td>
                           <img class="publication-header-logo " src="{{ fact.actor.image.url }}"/>
                         </td>
-                          {% if fact.action_type == 'TCT' %}
+                          {% if fact.action_type == 'TC' %}
+                            <img class="publication-header-symbole" src="/static/images/TC.png" />
                           {% elif fact.action_type == 'TS' %}
                             <img class="publication-header-symbole" src="/static/images/TS.png" />
                           {% elif fact.action_type == 'TU' %}
@@ -31,7 +32,7 @@
                           {% endif %}
                         <td> 
                           <div class="publication-header-announce "><b>{{ fact.actor.user.username }} 
-                          {% if fact.action_type == 'TCT' %}
+                          {% if fact.action_type == 'TC' %}
                             propose un nouveau 
                           {% elif fact.action_type == 'TS' %}
                             participe à ce 

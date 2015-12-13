@@ -8,8 +8,8 @@ class Historique(models.Model):
 			('UJ','UserJoined'),
 			('TS','TravelSubscribe'),
 			('TU','TravelUnsubscribe'),
-			('TCT','TravelCreated'),
-			('TC','TravelCommented'),
+			('TC','TravelCreated'),
+			('TCMT','TravelCommented'),
 			('TCC','TravelCanceled'),
 
 			# add new actions
