@@ -37,6 +37,7 @@
 
                {% if user.is_authenticated %}
                <li class="nav-divider"></li>
+               <li><a  id="notif_count" href='#'>0</a></li>
                 <li>
                   <a href="{% url 'users:profile'%}">
                   <img  src="{{ user.wuprofil.image.url }}"><b>{{ user.username }}</b></a>

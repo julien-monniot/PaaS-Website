@@ -40,7 +40,8 @@ INSTALLED_APPS = (
     'wu',
     'travel',
     'dashboard',
-    'bootstrapform',
+    'bootstrapform', 
+    "django_cron",
 )
 
 MIDDLEWARE_CLASSES = (
@@ -80,14 +81,16 @@ WSGI_APPLICATION = 'wup.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        "HOST": '62.210.69.220',
-        'NAME': 'dev_wup',
-        'USER': 'wup_dev_client',
-        'PASSWORD': 'wupINS@2',
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
+
+CRON_CLASSES = [
+    "dashboard.cron.ComputeFactsAndNotifications",
+    # ...
+]
 #'default': {
 #'ENGINE': 'django.db.backends.sqlite3',
 #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),

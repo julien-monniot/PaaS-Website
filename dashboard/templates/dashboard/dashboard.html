@@ -4,6 +4,7 @@
 {% block content %}
 
 
+
 <div class="container">
       
         <h1>Bienvenue</h1>
@@ -14,50 +15,77 @@
 
        <div class="publication row">
       
-       {% for fact in historique %}
-         {% if fact.object_type == 'TR' %}
+       {% for item in historique %}
+         {% if item.fact.object_type == 'TR' %}
               <div class="col-lg-8">
                   <div class="row publication-header">
                     <table>
                       <tr>
                         <td>
-                          <img class="publication-header-logo " src="{{ fact.actor.image.url }}"/>
+                          <img class="publication-header-logo " src="{{ item.fact.actor.image.url }}"/>
                         </td>
-                          {% if fact.action_type == 'TC' %}
+                          {% if item.fact.action_type == 'TC' %}
                             <img class="publication-header-symbole" src="/static/images/TC.png" />
-                          {% elif fact.action_type == 'TS' %}
+                          {% elif item.fact.action_type == 'TS' %}
                             <img class="publication-header-symbole" src="/static/images/TS.png" />
-                          {% elif fact.action_type == 'TU' %}
+                          {% elif item.fact.action_type == 'TU' %}
                             <img class="publication-header-symbole" src="/static/images/TU.png" />
                           {% endif %}
                         <td> 
-                          <div class="publication-header-announce "><b>{{ fact.actor.user.username }} 
-                          {% if fact.action_type == 'TC' %}
+                          <div class="publication-header-announce "><b>{{ item.fact.actor.user.username }} 
+                          {% if item.fact.action_type == 'TC' %}
                             propose un nouveau 
-                          {% elif fact.action_type == 'TS' %}
+                          {% elif item.fact.action_type == 'TS' %}
                             participe à ce 
-                          {% elif fact.action_type == 'TU' %}
+                          {% elif item.fact.action_type == 'TU' %}
                             ne participe plus  à ce 
                           {% endif %}
-                          <a href="/travel/{{ fact.object_travel.id }}">voyage</a></b> <br/> le {{ fact.date }}</div>
+                          <a href="/travel/{{ item.fact.object_travel.id }}">voyage</a></b> <br/> le {{ item.fact.date }}</div>
 
                         </td>
                       </tr>
                     </table>
                   </div>
                     <div class="row publication-content">
-                          <div class="publication-content-title"> <h4>{{ fact.object_travel.title }}</h4></div> 
+                          <div class="publication-content-title"> <h4>{{ item.fact.object_travel.title }}</h4></div> 
                         
-                          <img class="publication-content-image"  src="{{fact.object_travel.image.url }}" />                       
-                          <p class="publication-content-text"> {{ fact.object_travel.description }}</p>
+                          <img class="publication-content-image"  src="{{item.fact.object_travel.image.url }}" />                       
+                          <p class="publication-content-text"> {{ item.fact.object_travel.description }}</p>
                         
                   </div>
               </div>
-            {% endif %}
+            {% elif item.fact.object_type == 'N' %}
+                 <div class="col-lg-8">
+                      <div class="row publication-header">
+                        <table>
+                          <tr>
+                            <td>
+                              <img class="publication-header-logo " src="/static/images/news.png">
+                            </td>
+                            <td>
+                              <div class="publication-header-announce "><b>News</b></br> Publié le {{ item.fact.date }}</div><!---->
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+
+                      <div class="row publication-content">                        
+                        <div> 
+                          <p class="publication-content-text"> {{ item.fact.message }}</p>
+                         </div>
+                      </div>
+                    </div>
+             {% endif %}
            {% endfor %}
         </div>
       </div>
 </div><!-- /.container -->
 
+    <script type="text/javascript">
+       $(function() {
+                document.getElementById('notif_count').innerHTML = "{{ notif_count }}" ;
+
+                });
+    </script>
 
 {% endblock content %}
