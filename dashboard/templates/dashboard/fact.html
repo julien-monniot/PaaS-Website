@@ -1,0 +1,13 @@
+<<!-- deprecated -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Main page</h1>
+    <p><a href="{% url 'travel:travel_list' %}">Voyages</a></p>
+    <p><a href="{% url 'users:user_list' %}">La famille</a></p>
+    <p><a href="{% url 'users:profile' %}">Mon profil</a></p>
+    <p><a href="{% url 'users:logout' %}">Déconnexion</a></p>
+
+{% endblock %}

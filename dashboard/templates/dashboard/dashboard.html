@@ -15,31 +15,44 @@
        <div class="publication row">
       
        {% for fact in historique %}
-          <div class="col-lg-8">
-              <div class="row publication-header">
-                <table>
-                  <tr>
-                    <td>
-                      <img class="publication-header-logo " src="{{ fact.actor.image.url }}">
-                    </td>
-                    <td>
-                      {% if fact.action_type == 'TCT' %}
-                      <div class="publication-header-announce "><b>{{ fact.actor.user.username }} propose un nouveau <a href="/travel/{{ fact.object_id }}">voyage</a></b> <br/> le {{ fact.date }}</div>
+         {% if fact.object_type == 'TR' %}
+              <div class="col-lg-8">
+                  <div class="row publication-header">
+                    <table>
+                      <tr>
+                        <td>
+                          <img class="publication-header-logo " src="{{ fact.actor.image.url }}"/>
+                        </td>
+                          {% if fact.action_type == 'TCT' %}
+                          {% elif fact.action_type == 'TS' %}
+                            <img class="publication-header-symbole" src="/static/images/TS.png" />
+                          {% elif fact.action_type == 'TU' %}
+                            <img class="publication-header-symbole" src="/static/images/TU.png" />
+                          {% endif %}
+                        <td> 
+                          <div class="publication-header-announce "><b>{{ fact.actor.user.username }} 
+                          {% if fact.action_type == 'TCT' %}
+                            propose un nouveau 
+                          {% elif fact.action_type == 'TS' %}
+                            participe à ce 
+                          {% elif fact.action_type == 'TU' %}
+                            ne participe plus  à ce 
+                          {% endif %}
+                          <a href="/travel/{{ fact.object_travel.id }}">voyage</a></b> <br/> le {{ fact.date }}</div>
 
-                      {% elif fact.action_type == 'TS'%}
-                      <div class="publication-header-announce "><b>{{ fact.actor.user.username }} participe à ce <a href="/travel/{{ fact.object_id }}">voyage</a></b> <br/> le {{ fact.date }}</div>
-
-
-                      {% elif fact.action_type == 'TU'%}
-                      <div class="publication-header-announce "><b>{{ fact.actor.user.username }} ne participe plus  à ce <a href="/travel/{{ fact.object_id }}">voyage </a></b> <br/> le {{ fact.date }}</div>
-
-
-                      {% endif %}
-                    </td>
-                  </tr>
-                </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                    <div class="row publication-content">
+                          <div class="publication-content-title"> <h4>{{ fact.object_travel.title }}</h4></div> 
+                        
+                          <img class="publication-content-image"  src="{{fact.object_travel.image.url }}" />                       
+                          <p class="publication-content-text"> {{ fact.object_travel.description }}</p>
+                        
+                  </div>
               </div>
-          </div>
+            {% endif %}
            {% endfor %}
         </div>
       </div>

@@ -28,7 +28,19 @@ body {
 .publication-header td{
   vertical-align: top;
 }
+.publication-header-symbole{
 
+  width: 50px;
+  /*max-width: 40px;
+  min-width: 40px;*/
+  /*margin-bottom: -29px;*/
+ /* padding-left: 20px;*/
+  margin-left: 50px;
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+  border-radius: 6px 0px 0px 0px;
+}
 
 .publication-header-logo{
   width: 50px;
@@ -50,7 +62,7 @@ body {
   word-wrap: break-word;
   vertical-align: middle;
   color: #000;
-  font-size: 12px;
+  font-size: 14px;
   text-align: left;
   margin-bottom: 5px;
   margin-left: 1px;
@@ -194,3 +206,13 @@ strong {
 
 .sub-content  table  tr  td{
   padding-right: 20px;
+  width: 100%;
+}
+.sub-content-voyage
+{
+  width: 50px;
+
+}
+.sub-content-voyage img{
+  width: 100%;
+}

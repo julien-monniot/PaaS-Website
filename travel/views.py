@@ -46,11 +46,10 @@ def travel_subscribe(request, pk):
         participation=Participate(person=request.user.wuprofil, travel=travel, motivation=5)
         participation.save()
 
-        Historique.new(
+        Historique.newTravelFact(
             actor=request.user.wuprofil, 
             action_type="TS",
-            object_type="TR",
-            object_id=pk
+            object_travel=travel
         )
 
 
@@ -65,11 +64,10 @@ def travel_unsubscribe(request, pk):
         for participation in participations:
             participation.delete()
 
-        Historique.new(
+        Historique.newTravelFact(
             actor=request.user.wuprofil, 
             action_type="TU",
-            object_type="TR",
-            object_id=pk
+            object_travel=travel
         )
 
 

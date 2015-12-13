@@ -7,7 +7,7 @@
        <div class="publication row">
 
          <div style="padding-top:20px" class="btn-group" role="group">
-          <a href="{% url 'travel:travel_list' %}"><button class="dashboard-action-button btn btn-medium btn-default">Retour</button></a>
+          <a href="javascript:history.back()"><button class="dashboard-action-button btn btn-medium btn-default">Retour</button></a>
           {% if participating == False %}
           <a href="subscribe"><button type="button" class="btn btn-success">Participer</button></a>
           {% else %}

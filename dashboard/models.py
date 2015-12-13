@@ -11,6 +11,8 @@ class Historique(models.Model):
 			('TCT','TravelCreated'),
 			('TC','TravelCommented'),
 			('TCC','TravelCanceled'),
+
+			# add new actions
 		)
 	OBJECT_TYPES=(
 			('N','None'),
@@ -21,14 +23,16 @@ class Historique(models.Model):
 	date = models.DateTimeField(default=timezone.now)
 	notified = models.BooleanField(default=False)
 	object_type = models.CharField(max_length=2, choices=OBJECT_TYPES, default='N')
-	object_id = models.PositiveIntegerField(default=0)
+	object_travel = models.ForeignKey('travel.Travel', null=True)
 
-	def new(actor, action_type, object_type, object_id):
+	# add new objects (group, comment etc.. referencing the object as foreign key)
+
+	def newTravelFact(actor, action_type, object_travel):
 		historique = Historique(
 		    actor=actor, 
 		    action_type=action_type,
-		    object_type=object_type,
-		    object_id=object_id
+		    object_type='TR',
+		    object_travel=object_travel
 		    )
 		historique.save()
 
