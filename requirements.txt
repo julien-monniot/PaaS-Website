@@ -1,5 +1,6 @@
 django==1.8
 pillow
+django-toolbelt==0.0.1
 mysqlclient
 django-bootstrap-forms
 django-cron
