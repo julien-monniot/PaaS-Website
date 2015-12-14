@@ -46,11 +46,11 @@
                   <!--<a href="{% url 'users:profile'%}"></a>-->
                   
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img id = "menu_profile_image" src="{{ user.wuprofil.image.url }}"/><b>{{ user.username }}<sup id="notif_count" {% if has_notifs %} style="color:#00FF00"{% endif %} href='#'><b>{{ notif_count }}</b></sup></b>
+                    <img id = "menu_profile_image" src="{{ user.wuprofil.image.url }}"/><b>{{ user.username }}{% if has_notifs %}<sup id="notif_count"  style="color:#00FF00" href='#'><b>{{ notif_count }}</b></sup>{% endif %}</b>
                   </a>
                   <ul class="dropdown-menu">
                     <li><a href="{% url 'users:profile'%}">Mon profile</a></li>
-                    <li><a {% if has_notifs %} style="color:#00EE00"{% endif %}  href="#">Notifications</a></li>
+                    <li><a {% if has_notifs %} style="color:#00EE00"{% endif %}  href="{% url 'main:notifications'%}">Notifications</a></li>
                   </ul>
                 </li>
 

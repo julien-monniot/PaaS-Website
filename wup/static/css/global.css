@@ -10,6 +10,7 @@ body {
   background-color: white;
   box-shadow: 0 0 5px black;
   border-radius: 6px 0px 0px 0px;
+
 }
 
 .action{
@@ -227,4 +228,10 @@ strong {
     height: 20px;
     border: 1px solid #f00;*/
 
+}
+
+.notif_unread
+{
+
+ border:solid 5px; border-color:green;
 }

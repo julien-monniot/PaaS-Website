@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    
+<div class="container">
+      
+        <h1>Notifications</h1>
+
+        <div class="starter-template">
+       <div class="publication row">
+      
+       {% for notif in notifications %}
+
+         {% if notif.fact.object_type == 'TR' %}
+              <div class="col-lg-8 {% if not notif.seen %} notif_unread {% endif %}">
+              	<a href="/dashboard/notifications/{{ notif.id }}">
+                  <div class="row publication-header">
+                    <table>
+                      <tr>
+                        <td>
+                          <img class="publication-header-logo " src="{{ notif.fact.actor.image.url }}"/>
+                        </td>
+                          {% if notif.fact.action_type == 'TC' %}
+                            <img class="publication-header-symbole" src="/static/images/TC.png" />
+                          {% elif notif.fact.action_type == 'TS' %}
+                            <img class="publication-header-symbole" src="/static/images/TS.png" />
+                          {% elif notif.fact.action_type == 'TU' %}
+                            <img class="publication-header-symbole" src="/static/images/TU.png" />
+                          {% endif %}
+                        <td> 
+                          <div class="publication-header-announce ">  {{ notif.message }}</div>
+
+                        </td>
+                      </tr>
+                    </table></a>
+                  </div>
+              </div>
+            {% elif notif.fact.object_type == 'N' %}
+                 <div class="col-lg-8">
+                      <div class="row publication-header">
+                        <table>
+                          <tr>
+                            <td>
+                              <img class="publication-header-logo " src="/static/images/news.png">
+                            </td>
+                            <td>
+                              <div class="publication-header-announce "><b>News</b></br> Publié le {{ notif.fact.date }}</div><!---->
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+             {% endif %}
+           {% endfor %}
+        </div>
+      </div>
+</div><!-- /.container -->
+
+{% endblock %}
