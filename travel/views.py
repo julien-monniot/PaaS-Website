@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.shortcuts import render, get_object_or_404, redirect,render_to_response
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
@@ -47,7 +49,7 @@ def travel_subscribe(request, pk):
         participation.save()
 
         Historique.newTravelFact(
-            actor=request.user.wuprofil, 
+            actor=request.user.wuprofil,
             action_type="TS",
             object_travel=travel
         )
@@ -65,7 +67,7 @@ def travel_unsubscribe(request, pk):
             participation.delete()
 
         Historique.newTravelFact(
-            actor=request.user.wuprofil, 
+            actor=request.user.wuprofil,
             action_type="TU",
             object_travel=travel
         )
