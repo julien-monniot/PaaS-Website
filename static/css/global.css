@@ -22,8 +22,24 @@ body {
 	padding: 0px;
 	margin: 0px;
 }
+.publication-header table{
+  vertical-align: top;
+}
 .publication-header td{
   vertical-align: top;
+}
+.publication-header-symbole{
+
+  width: 50px;
+  /*max-width: 40px;
+  min-width: 40px;*/
+  /*margin-bottom: -29px;*/
+ /* padding-left: 20px;*/
+  margin-left: 50px;
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+  border-radius: 6px 0px 0px 0px;
 }
 
 .publication-header-logo{
@@ -46,7 +62,7 @@ body {
   word-wrap: break-word;
   vertical-align: middle;
   color: #000;
-  font-size: 12px;
+  font-size: 14px;
   text-align: left;
   margin-bottom: 5px;
   margin-left: 1px;
@@ -71,9 +87,24 @@ body {
 .publication-content-title{
   background-color: white;
 }
+
+.publication-content-detailed {
+  font-size: 30px;
+  text-align: center;
+ /* border-top: solid 1px;*/
+  padding-top: 25px;
+  margin-top: 20px;
+  /*border-bottom: solid 1px;
+  border-bottom-width: 80%;*/
+  margin-bottom: 20px;
+  padding-bottom: 25px;
+
+}
+
+
 .publication-content-text{
   word-wrap: break-word;
-  text-align: justify;s
+  text-align: justify;
 }
 
 
@@ -84,8 +115,24 @@ body {
   margin-right: 10px;
 }
 
+.publication-participant-logo
+{
+  width: 30px;
+  padding: 0px;
+}
+.publication-participant-name
+{
+  font-size: 12px;
+  text-align: center;
+  padding-left: 20px;
+}
+.publication-stages{
+  margin: 10px;
+  padding-left: 10px;
+  display: inline-block;
+}
 .dashboard-action-button{
-  margin: 5px;
+  margin: 10px;
 } 
 
 .dashboard-action-text{
@@ -94,4 +141,83 @@ body {
 
 h1{
   margin-bottom: 50px;
+}
+.details{
+  text-align: center;
+}
+.return-back{
+  width: 100px;
+  text-align: center;
+}
+.add-vertical-space{
+  margin-bottom:10px;
+}
+.participants {
+}
+.participants [class*="col-"]{
+ padding-left: 0px;
+ padding-right: 0px;
+}
+
+
+.nav > li > a > img {
+  height: 20px;
+  padding-right: 5px;
+}
+
+
+.formulaire-part{
+    margin:10px;
+  background-color: white;
+  box-shadow: 0 0 5px black;
+  padding: 10px;
+  display: inline-block;
+  max-width: 600px;
+}
+
+.user_form
+{
+  margin-left: 10px; 
+  margin-right: 10px;
+}
+
+strong {
+  font-weight: 700;
+  text-align: center;
+  display: block;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-size: 22px;
+}
+
+.family-memebers [class*="col-"]
+{
+
+  margin:10px;
+  background-color: white;
+  box-shadow: 0 0 5px black;
+  border-radius: 6px 0px 0px 0px;
+ 
+}
+
+.sub-content{
+  font-size: 24px;
+}
+
+.sub-content  table  tr  td{
+  padding-right: 20px;
+  width: 100%;
+}
+.sub-content-voyage
+{
+  width: 50px;
+
+}
+.sub-content-voyage img{
+  width: 100%;
+}
+
+#notif_count{
+  color: red;
+  font-size: 20px;
 }
