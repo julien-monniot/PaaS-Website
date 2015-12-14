@@ -23,6 +23,9 @@ class ComputeFactsAndNotifications(CronJobBase):
 def compute():
 	facts = Historique.objects.filter(notified=False)
 	for fact in facts:
+		if fact.action_type == 'TC':
+			newFlow = Flow(fact=fact)
+			newFlow.save()
 		if fact.action_type == 'TS':
 			newFlow = Flow(fact=fact)
 			newFlow.save()

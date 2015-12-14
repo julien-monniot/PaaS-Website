@@ -52,6 +52,7 @@ class Notification(models.Model):
 	fact = models.ForeignKey('Historique')
 
 class Flow(models.Model):
+	#receiver = null => concerns all members
 	receiver = models.ForeignKey('wu.WuProfil', null=True)
 	fact = models.ForeignKey('Historique')
 

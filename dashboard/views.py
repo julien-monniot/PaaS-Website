@@ -8,7 +8,6 @@ from .models import Historique, Flow, Notification
 def main_panel(request):
     return render(request, 'dashboard/dashboard.html', 
 		{
-			"historique":Flow.objects.filter(Q(receiver__user__id=request.user.id)| Q(receiver__isnull=True)).order_by('-fact__date'),
-			"notif_count":Notification.objects.filter(receiver=request.user.wuprofil, seen=False).count()
+			"historique":Flow.objects.filter(Q(receiver__user__id=request.user.id)| Q(receiver__isnull=True)).order_by('-fact__date')
 		}
 	)
