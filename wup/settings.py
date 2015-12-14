@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Application definition
 
@@ -40,7 +42,7 @@ INSTALLED_APPS = (
     'wu',
     'travel',
     'dashboard',
-    'bootstrapform', 
+    'bootstrapform',
     "django_cron",
 )
 
@@ -81,20 +83,18 @@ WSGI_APPLICATION = 'wup.wsgi.application'
 
 DATABASES = {
     'default': {
-    'ENGINE': 'django.db.backends.sqlite3',
-    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dev_wup',
+        'USER': 'wup_dev_client',
+        'PASSWORD': 'wupINS@2',
+        'HOST': '62.210.69.220',
     }
 }
-
 
 CRON_CLASSES = [
     "dashboard.cron.ComputeFactsAndNotifications",
     # ...
 ]
-#'default': {
-#'ENGINE': 'django.db.backends.sqlite3',
-#'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
