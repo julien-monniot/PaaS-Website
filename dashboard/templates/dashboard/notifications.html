@@ -51,6 +51,22 @@
                         </table>
                       </div>
                     </div>
+           {% elif notif.fact.object_type == 'U' %}
+                 <div class="col-lg-8">
+                      <div class="row publication-header">
+                        <table>
+                          <tr>
+                            <td>
+                          		<img class="publication-header-logo " src="{{ notif.fact.actor.image.url }}"/>
+                            </td>
+                             <img class="publication-header-symbole" src="/static/images/UJ.png">
+                            <td>
+                              <div class="publication-header-announce "> {{ notif.message }} </div><!---->
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
              {% endif %}
            {% endfor %}
         </div>

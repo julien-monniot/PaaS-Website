@@ -15,7 +15,7 @@ def main_panel(request):
 def notifications(request):
 	return render(request, 'dashboard/notifications.html', 
 		{
-			"title":"Vos Notifications","notifications":Notification.objects.filter(receiver__user__id=request.user.id)
+			"title":"Vos Notifications","notifications":Notification.objects.filter(Q(receiver__user__id=request.user.id)| Q(receiver__isnull=True)).order_by('-id')
 		}
 	)
 

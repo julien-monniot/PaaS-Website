@@ -16,28 +16,7 @@ class ComputeFactsAndNotifications(CronJobBase):
 
 
 	def do(self):
-		t = Thread(target=compute)
-		t.start()
+		pass
 
 
-def compute():
-	facts = Historique.objects.filter(notified=False)
-	for fact in facts:
-		if fact.action_type == 'TC':
-			newFlow = Flow(fact=fact)
-			newFlow.save()
-		if fact.action_type == 'TS':
-			newFlow = Flow(fact=fact)
-			newFlow.save()
-			newNotification = Notification(fact=fact, receiver=fact.object_travel.author, message="Un membre a rejoin votre voyage")
-			newNotification.save()
-		if fact.action_type == 'TU':
-			newFlow = Flow(fact=fact)
-			newFlow.save()
-			newNotification = Notification(fact=fact, receiver=fact.object_travel.author, message="Un membre a quitté votre voyage")
-			newNotification.save()
-
-
-		fact.notified = True
-		fact.save()
 

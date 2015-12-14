@@ -5,6 +5,7 @@ from django.contrib.auth.views import logout_then_login
 from .models import WuProfil
 from django.contrib.auth.models import User
 from wup import settings
+from dashboard.models import Historique
 
 def index(request):
     if not request.user.is_authenticated():
@@ -43,6 +44,12 @@ def register(request):
 
             # Update our variable to tell the template registration was successful.
             registered = True
+
+            Historique.newUserFact(
+                actor=user.wuprofil, 
+                action_type="UJ",
+                object_user=user.wuprofil
+            )
 
         # Invalid form or forms - mistakes or something else?
         # Print problems to the terminal.
