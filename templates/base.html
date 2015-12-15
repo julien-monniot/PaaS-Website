@@ -18,7 +18,11 @@
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
+                {% if has_notifs %}
+                 <i class="glyphicon glyphicon-certificate" style="color:#00FF00"></i>
+                {% elif not has_notifs %}
                 <span class="icon-bar"></span>
+                {% endif %}
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
@@ -37,11 +41,20 @@
 
                {% if user.is_authenticated %}
                <li class="nav-divider"></li>
-               <li><a  id="notif_count" href='#'>0</a></li>
+               <!--<li><a  id="notif_count" {% if has_notifs %} style="color:#00FF00"{% endif %} href='#'><b>{{ notif_count }}</b></a></li>-->
                 <li>
-                  <a href="{% url 'users:profile'%}">
-                  <img  src="{{ user.wuprofil.image.url }}"><b>{{ user.username }}</b></a>
+                  <!--<a href="{% url 'users:profile'%}"></a>-->
+                  
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img id = "menu_profile_image" src="{{ user.wuprofil.image.url }}"/><b>{{ user.username }}{% if has_notifs %}<sup id="notif_count"  style="color:#00FF00" href='#'><b>{{ notif_count }}</b></sup>{% endif %}</b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url 'users:profile'%}">Mon profile</a></li>
+                    <li><a {% if has_notifs %} style="color:#00EE00"{% endif %}  href="{% url 'main:notifications'%}">Notifications</a></li>
+                  </ul>
                 </li>
+
+                  
                 <li><a href="{% url 'users:logout'%}">Se déconnecter</a></li>
                </ul>
                {% endif %}

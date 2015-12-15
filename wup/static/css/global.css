@@ -10,6 +10,7 @@ body {
   background-color: white;
   box-shadow: 0 0 5px black;
   border-radius: 6px 0px 0px 0px;
+
 }
 
 .action{
@@ -160,7 +161,7 @@ h1{
 }
 
 
-.nav > li > a > img {
+#menu_profile_image {
   height: 20px;
   padding-right: 5px;
 }
@@ -218,6 +219,19 @@ strong {
 }
 
 #notif_count{
-  color: red;
-  font-size: 20px;
+  color: white;
+  font-size: 14px;
+  padding-left: 3px;
+
+ /* box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #f00;*/
+
+}
+
+.notif_unread
+{
+
+ border:solid 5px; border-color:green;
 }

@@ -7,8 +7,6 @@
 
 <div class="container">
       
-        <h1>Bienvenue</h1>
-
         <div class="starter-template">
 
         <h1>{{ title }}</h1>
@@ -75,17 +73,27 @@
                          </div>
                       </div>
                     </div>
+              {% elif item.fact.object_type == 'U' %}
+                 <div class="col-lg-8">
+                      <div class="row publication-header">
+                        <table>
+                          <tr>
+                            <td>
+                              <img class="publication-header-logo " src="{{ item.fact.actor.image.url }}"/>
+                            </td>
+                             <img class="publication-header-symbole" src="/static/images/UJ.png">
+                            <td>
+                              <div class="publication-header-announce "> Ce <a href="#">membre</a> a rejoin la communauté </div><!---->
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
              {% endif %}
            {% endfor %}
         </div>
       </div>
 </div><!-- /.container -->
 
-    <script type="text/javascript">
-       $(function() {
-                document.getElementById('notif_count').innerHTML = "{{ notif_count }}" ;
-
-                });
-    </script>
 
 {% endblock content %}
