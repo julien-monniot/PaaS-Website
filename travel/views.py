@@ -118,6 +118,13 @@ def create_travel(request):
                 travel.save()
                 stage_formset.save()
                 form.save_m2m()
+
+                Historique.newTravelFact(
+                    actor=request.user.wuprofil, 
+                    action_type="TC",
+                    object_travel=travel
+                )
+
                 return travel_list(request)
             else :
                 print("Stage formset invalid")
