@@ -115,14 +115,14 @@ USE_TZ = False  # that was set to True at project creation
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
 STATICFILES_DIRS = (
-  os.path.join(BASE_DIR, "wup/static"),
+  os.path.join(BASE_DIR, "app/wup/static"),
 )
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "medias/")
-MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "app/medias/")
+MEDIA_URL = 'media/'
 
 LOGIN_URL = '/users/login/'
 
