@@ -118,10 +118,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = (
-  os.path.join(BASE_DIR, "app/wup/static"),
+  os.path.join(BASE_DIR, "wup/static"),
 )
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "app/medias/")
+MEDIA_ROOT = os.path.join(BASE_DIR, "medias/")
 MEDIA_URL = 'media/'
 
 LOGIN_URL = '/users/login/'
