@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 from django.utils import timezone
 from django.core.validators import MaxValueValidator
@@ -64,7 +66,7 @@ class Historique(models.Model):
 
 	def newTravelFact(actor, action_type, object_travel):
 		historique = Historique(
-		    actor=actor, 
+		    actor=actor,
 		    action_type=action_type,
 		    object_type='TR',
 		    object_travel=object_travel
@@ -74,7 +76,7 @@ class Historique(models.Model):
 
 	def newUserFact(actor, action_type, object_user):
 		historique = Historique(
-		    actor=actor, 
+		    actor=actor,
 		    action_type=action_type,
 		    object_type='U'
 		    )
